@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_vertical"
     android:weightSum="1">
@@ -17,7 +18,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
             android:gravity="left|center|center_horizontal"
             android:weightSum="1"
             android:layout_weight="0.2">
@@ -35,7 +36,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="Hello"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:textColor="@color/background_material_dark" />
 
                 <TextView
                     android:singleLine="true"
@@ -57,8 +59,7 @@
             android:layout_height="fill_parent"
             android:layout_gravity="center_horizontal"
             android:gravity="right|center"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
             android:weightSum="1">
 
             <TextView
@@ -67,7 +68,9 @@
                 android:layout_height="wrap_content"
                 android:text="Hello"
                 android:textSize="15dp"
-                android:gravity="right" />
+                android:gravity="right"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="italic" />
         </LinearLayout>
     </LinearLayout>
 

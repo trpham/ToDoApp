@@ -50,14 +50,24 @@ public class TodoItemsAdapter extends BaseAdapter {
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder)convertView.getTag();
-
         }
 
         holder.task.setText(todoItemList.get(position).get_task());
         holder.notes.setText(todoItemList.get(position).get_notes());
         holder.priority.setText(todoItemList.get(position).get_priority());
+
         if(todoItemList.get(position).get_status().equals("Done")) {
-            convertView.setBackgroundColor(Color.GREEN);
+            convertView.setBackgroundColor(Color.LTGRAY);
+        } else {
+            if (todoItemList.get(position).get_priority().equals("High")) {
+                convertView.setBackgroundColor(Color.parseColor("#da5344"));
+            }
+            if (todoItemList.get(position).get_priority().equals("Medium")) {
+                convertView.setBackgroundColor(Color.parseColor("#eca9a1"));
+            }
+            if (todoItemList.get(position).get_priority().equals("Low")) {
+                convertView.setBackgroundColor(Color.parseColor("#fbebea"));
+            }
         }
         return convertView;
     }

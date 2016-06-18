@@ -13,12 +13,11 @@ import java.util.ArrayList;
  */
 public class TodoItemsDbHelper extends SQLiteOpenHelper {
 
-    ArrayList<TodoItem> todoItemList;
+    private ArrayList<TodoItem> todoItemList;
 
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "dataManager";
     private static final String TABLE_DATA = "data";
-
     private static final String KEY_ID = "id";
     private static final String KEY_TASK = "task";
     private static final String KEY_DUE = "due";
@@ -63,7 +62,6 @@ public class TodoItemsDbHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-
     public ArrayList<TodoItem> getData() {
         todoItemList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
@@ -84,17 +82,10 @@ public class TodoItemsDbHelper extends SQLiteOpenHelper {
             todoItem.setiD(cursor.getInt(0));
             todoItemList.add(todoItem);
         }
-
-//        Mon Dec 07 20:25:59 EDT 22
-
-
         cursor.close();
         db.close();
-
         return todoItemList;
     }
-
-
 
     public void updateData(TodoItem todoItem) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -104,15 +95,8 @@ public class TodoItemsDbHelper extends SQLiteOpenHelper {
         values.put(KEY_NOTES, todoItem.get_notes());
         values.put(KEY_PRIORIRY, todoItem.get_priority());
         values.put(KEY_STATUS, todoItem.get_status());
-
         db.update(TABLE_DATA, values, KEY_ID + "=" + todoItem.getiD(), null);
-
         db.close();
     }
-
-
 }
 
-
-//        Log.d("IdTask ", String.valueOf(cursor.getInt(0)));
-//                Log.d("Task ", cursor.getString(1));

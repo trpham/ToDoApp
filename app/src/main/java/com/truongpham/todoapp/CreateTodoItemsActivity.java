@@ -24,22 +24,22 @@ public class CreateTodoItemsActivity extends AppCompatActivity {
     private int month;
     private int day;
 
-
-    EditText etTask;
-    DatePicker dpDueDate;
-    EditText etNotes;
-    Spinner sPriority;
-    Spinner sStatus;
+    private EditText etTask;
+    private DatePicker dpDueDate;
+    private EditText etNotes;
+    private Spinner sPriority;
+    private Spinner sStatus;
 
     private final String EDIT_TASK = "TASK";
     private final String EDIT_DUEDATE = "DUEDATE";
-    private final String EDIT_NOTES = "NOTEs";
+    private final String EDIT_NOTES = "NOTES";
     private final String EDIT_PRIORITY = "PRIORITY";
     private final String EDIT_STATUS = "STATUS";
     private final String EDIT_ID = "ID";
     private int id = -1;
     private String operation = "";
     private final String onSave = "Save";
+
     TodoItem todoItem = null;
 
     private final HashMap<String, Integer> pMap = new HashMap<String, Integer>() {{
@@ -96,9 +96,6 @@ public class CreateTodoItemsActivity extends AppCompatActivity {
             sStatus.setAdapter(status_adapter);
             sStatus.setSelection(sMap.get(editedStatus));
 
-            //todoItem = new TodoItem(editedTask, editedDueDate, editedNotes, editedPriority, editedStatus);
-            //todoItem.setiD(id);
-
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             Calendar calendar = Calendar.getInstance();
             try {
@@ -108,20 +105,10 @@ public class CreateTodoItemsActivity extends AppCompatActivity {
             datePicker = (DatePicker) findViewById(R.id.duedate);
             datePicker.updateDate(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         }
-
-
         else {
-
-
-
             Spinner status_spinner = (Spinner) findViewById(R.id.status_spin);
-
-
             status_spinner.setAdapter(status_adapter);
-
-
             Spinner prioriry_spinner = (Spinner) findViewById(R.id.priority_spin);
-
             prioriry_spinner.setAdapter(priority_adapter);
 
             final Calendar calendar = Calendar.getInstance();
@@ -143,10 +130,6 @@ public class CreateTodoItemsActivity extends AppCompatActivity {
     }
 
     public void onSaveItem() {
-
-
-
-
         String task = etTask.getText().toString();
         String notes = etNotes.getText().toString();
         String priority = sPriority.getSelectedItem().toString();
@@ -168,15 +151,9 @@ public class CreateTodoItemsActivity extends AppCompatActivity {
             toDoItemsDbHandler.addData(todoItem);
         }
 
-
         Intent addIntent = new Intent(CreateTodoItemsActivity.this, MainActivity.class);
         startActivity(addIntent);
     }
-
-    public void onUpdateItem() {
-
-    }
-
 
     public void onCancelItem() {
         Intent addIntent = new Intent(CreateTodoItemsActivity.this, MainActivity.class);

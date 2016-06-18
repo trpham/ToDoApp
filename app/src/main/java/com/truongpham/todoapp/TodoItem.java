@@ -4,7 +4,6 @@ package com.truongpham.todoapp;
  * Created by ts-truong.pham on 6/13/16.
  */
 public class TodoItem {
-
     int iD;
     String _task;
     String _dueDate;

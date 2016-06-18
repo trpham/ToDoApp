@@ -19,15 +19,17 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ListView lvItems;
-    TodoItemsAdapter adapter;
+    private ListView todoItemsView;
+    private TodoItemsAdapter todoItemsAdapter;
     private GoogleApiClient client;
+
+    private final String EDIT_ID = "ID";
     private final String EDIT_TASK = "TASK";
     private final String EDIT_DUEDATE = "DUEDATE";
-    private final String EDIT_NOTES = "NOTEs";
+    private final String EDIT_NOTES = "NOTES";
     private final String EDIT_PRIORITY = "PRIORITY";
     private final String EDIT_STATUS = "STATUS";
-    private final String EDIT_ID = "ID";
+
     private final String onSave = "Save";
 
     @Override
@@ -35,24 +37,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        lvItems = (ListView) findViewById(R.id.lvItems);
+        todoItemsView = (ListView) findViewById(R.id.lvItems);
         final TodoItemsDbHelper dbHelper = new TodoItemsDbHelper(this);
         final ArrayList<TodoItem> todoItemList = dbHelper.getData();
 
-        adapter = new TodoItemsAdapter(this, todoItemList);
-        lvItems.setAdapter(adapter);
-//        lvItems.setOnItemClickListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapter, View view, int position, long arg) {
-//                Intent addIntent = new Intent(MainActivity.this, CreateTodoItemsActivity.class);
-//                startActivity(addIntent);
-//            }
-////        });
-//
-        lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        todoItemsAdapter = new TodoItemsAdapter(this, todoItemList);
+        todoItemsView.setAdapter(todoItemsAdapter);
+
+        todoItemsView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-
                 Intent addIntent = new Intent(MainActivity.this, CreateTodoItemsActivity.class);
                 TodoItem todoItem = todoItemList.get(position);
 
@@ -72,20 +66,20 @@ public class MainActivity extends AppCompatActivity {
                 addIntent.putExtra(onSave, "Update");
 
                 startActivity(addIntent);
-
             }
         });
 
 
-        lvItems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        todoItemsView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 dbHelper.deleteData(todoItemList.get(position).getiD());
                 todoItemList.remove(position);
-                adapter.notifyDataSetChanged();
+                todoItemsAdapter.notifyDataSetChanged();
                 return true;
             }
         });
+
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
@@ -131,7 +125,6 @@ public class MainActivity extends AppCompatActivity {
         inflater.inflate(R.menu.main_screen, menu);
         return true;
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
