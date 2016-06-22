@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         todoItemsView = (ListView) findViewById(R.id.lvItems);
         final TodoItemsDbHelper dbHelper = new TodoItemsDbHelper(this);
         final ArrayList<TodoItem> todoItemList = dbHelper.getData();

@@ -80,6 +80,7 @@ public class CreateTodoItemsActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         if (intent.getStringExtra(EDIT_TASK) != null) {
+            setTitle("Edit Task");
             String editedTask = intent.getStringExtra(EDIT_TASK);
             String editedDueDate = intent.getStringExtra(EDIT_DUEDATE);
             String editedNotes = intent.getStringExtra(EDIT_NOTES);
@@ -106,6 +107,7 @@ public class CreateTodoItemsActivity extends AppCompatActivity {
             datePicker.updateDate(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         }
         else {
+            setTitle("Add Task");
             Spinner status_spinner = (Spinner) findViewById(R.id.status_spin);
             status_spinner.setAdapter(status_adapter);
             Spinner prioriry_spinner = (Spinner) findViewById(R.id.priority_spin);

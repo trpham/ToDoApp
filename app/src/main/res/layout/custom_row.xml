@@ -63,14 +63,26 @@
             android:weightSum="1">
 
             <TextView
-                android:id="@+id/priority_todoItem"
-                android:layout_width="72dp"
+                android:id="@+id/dueMonth_todoItem"
+                android:layout_width="44dp"
                 android:layout_height="wrap_content"
-                android:text="Hello"
+                android:text=""
+                android:textSize="15dp"
+                android:gravity="right"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="italic"
+                android:layout_marginRight="5dp" />
+
+            <TextView
+                android:id="@+id/dueDay_todoItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
                 android:textSize="15dp"
                 android:gravity="right"
                 android:textColor="@color/colorPrimary"
                 android:textStyle="italic" />
+
         </LinearLayout>
     </LinearLayout>
 
