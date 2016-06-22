@@ -93,7 +93,7 @@ public class TodoItemsAdapter extends BaseAdapter {
             }
             else if(catalog_outdated == -1) {
                 holder.dueMonth.setText("");
-                holder.dueDay.setText("OUTDATED");
+                holder.dueDay.setText("OVERDUE");
             }
             else {
                 holder.dueMonth.setText(month);
