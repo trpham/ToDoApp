@@ -4,7 +4,7 @@
 
 Submitted by: **Truong Pham**
 
-Time spent: **35** hours spent in total
+Time spent: **45** hours spent in total
 
 ## User Stories
 
@@ -25,11 +25,11 @@ The following **optional** features are implemented:
 
 
 The following **additional** features are implemented:
-* [x] Support dueDate Calculation (with options of Today, OverDue or future DueDate)
-* [x] Shade of Red changing depend of priority level (High, Medium or Low) or turn to Gray (if Done)
+* [x] Support dueDate calculation (with options of "Today", "OverDue" or future DueDate)
+* [x] Shade of Red changing depend of priority level ("High", "Medium" or "Low") or turn to Gray (if "Done")
 * [x] ActionBar cusomize with text (All Tasks, Edit Task or New Task)
 * [x] App Icon
-* [x] Retrive correct data when edit task
+* [x] Retrive correct data when edit a task
 
 ## Video Walkthrough 
 
@@ -42,6 +42,9 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 
 Implementing SQLLite Database make the data easier to retrieve. It's challenging but fun to learn how to edit a item using the same CreateTodoTimesActivity prefilled with old todoItem's values. I spend a great deal amount of time to debug the code, but it's a rewarding learning experience.
+
+## Improvment
+The app needs more UI/UX design ideas for making it a better look and feel.
 
 ## License
 
